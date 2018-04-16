@@ -1,0 +1,81 @@
+0.0.1
+构建项目
+基础功能
+基本使用bug的修改，部分函数增加 from 马跃峰
+
+0.0.2
+sqlbuilder主类加入foreach遍历功能,内部遍历使用了page分页遍历。主要针对在对比较大的数据遍历的时候可能出现的内存溢出异常。
+优化where语句中的in代码，支持not in（以前不支持）
+
+0.1.1
+修改了一些重大bug，foreach方法改成forEach
+
+0.1.2
+支持了set和update 语句，可以在sqlBuilder里面进行更新操作
+
+0.1.3
+set的值传递和where语句分开，支持allForeach（自动绑定后的foreach）
+
+0.1.4
+selectIds(String idKey)的支持，可以按key列出Set<Long>
+allFindFirst 找到第一个对象，并对其自动绑定
+streams，allStreams 取到数据集的流操作
+
+0.1.5
+支持having语句
+修改group by后分页bug
+
+0.1.6
+整体结构更新，
+主类数组类型转换基本改成拉姆达表达式，
+分页加入拉姆达表达式回调函数
+dump方法输出sql语句和参数
+把中间的private方法改成protected方法方便被继承
+
+0.1.9
+整体支持in（"aaa","bbb","ccc"） in字符串
+合表也可以支持字符串主键的表
+拉姆达重构了大量的类型转换语句
+使用optional优化了对null的处理
+
+0.1.10
+修改了排除字段的bug
+
+0.1.11
+使用StringJoiner替代了一批List类
+mergeData 和 mergeUtil合并成mergeUtil
+调整了limit
+
+0.1.14
+生成了数据库的字段属性接口被baseModel继承
+方便在外部调用数据库的字段名称
+如IAlarm._id , Alarm._id  => "id"
+
+0.1.15
+set和where支持对象传入，回调对象，
+依次遍历对象里面的属性转成set key=value， where key=value
+foreach allForeach遍历bug
+
+0.1.16
+空值绑定不到alias的bug
+
+0.1.17
+where语句字段带``，生成语句只生成带前缀的表，其余的过滤
+
+0.1.18
+where 条件只有一句 并且里面只有null的时候过滤
+
+0.1.19
+改良ORDER BY 语句，使其可以多次调用，里面可以使用FormFilter对象进行传递
+如果page（FormFilter formFilter）中formFilter带了排序字段，则加入排序功能
+
+0.1.20
+page过程中 自动ORDER 逻辑改成一定需要是主表里面的字段才会自动排序
+
+0.1.21
+增加selectMap 返回一个map
+
+0.1.23
+selectMap 泛型优化
+
+0.1.24
